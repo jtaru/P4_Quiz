@@ -141,6 +141,7 @@ exports.playCmd = rl => {
             log(`No hay nada más que preguntar.`);
             log(`Fin del juego. Aciertos: ${score}`);
            // log("Fin");
+            log('Tu puntuación es' );
             biglog(score, 'magenta');
             rl.prompt();
 		}else{
@@ -159,14 +160,16 @@ exports.playCmd = rl => {
 						//log("Correct");
 						//biglog("CORRECTA", "green");
 						score=score+1;
+						log(`correcto`);
 						log(`CORRECTO - Lleva ${score} aciertos.`);
 						toBeResolved.splice(id, 1);
 						quizzes.splice(id, 1);
 						playOne();
 						
 					}else{
-						log("INCORRECT0.");
-						log(`Fin del juego. Aciertos: ${colorize(score, "blue")}`);
+						log(`incorrecto`);
+     	 				log('INCORRECTO.', );
+						log(`Final del juego. Aciertos: ${score}`);
 						biglog(score, 'magenta');
 						//log(`Has acertado ${colorize(score, "blue")} preguntas`);
 						rl.prompt();
