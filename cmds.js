@@ -108,10 +108,10 @@ exports.testCmd = (rl, id) => {
 
 				if ( sinEspacios[0].trim().toLowerCase() === quiz.answer.toLowerCase()){
 					
-					biglog("CORRECTO", "green");
+					biglog("CORRECTA", "green");
 					
 				}else{
-					biglog("INCORRECTO", "red");
+					biglog("INCORRECTA", "red");
 				};
 			rl.prompt();
 			});
@@ -138,6 +138,7 @@ exports.playCmd = rl => {
 		if(toBeResolved.length === 0){
             log(`No hay nada más que preguntar.`);
             log(`Fin del juego. Aciertos: ${colorize(score, "blue")}`);
+            log("Fin");
             biglog(score, 'yellow');
             rl.prompt();
 		}else{
@@ -153,8 +154,8 @@ exports.playCmd = rl => {
 
 
 					if ( sinEspacios[0].trim().toLowerCase() === quiz.answer.toLowerCase()){
-						
-						biglog("CORRECTO", "green");
+						log("Correct");
+						biglog("CORRECTA", "green");
 						score=score+1;
 						log(`CORRECTO - Lleva ${score} aciertos.`);
 						toBeResolved.splice(id, 1);
@@ -162,7 +163,8 @@ exports.playCmd = rl => {
 						playOne();
 						
 					}else{
-						biglog("INCORRECTO", "red");
+						log("Incorrect");
+						biglog("INCORRECTA", "red");
 						log(`Has acertado ${colorize(score, "blue")} preguntas`);
 						rl.prompt();
 					};
