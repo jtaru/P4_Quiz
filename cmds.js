@@ -107,11 +107,13 @@ exports.testCmd = (rl, id) => {
 				const sinEspacios = respuesta.match(/[a-zñáéíóúA-Z0-9_]+/ig);
 
 				if ( sinEspacios[0].trim().toLowerCase() === quiz.answer.toLowerCase()){
+					log("Su respuesta es correcta.");
 					
-					biglog("CORRECTA", "green");
+					biglog("Correcta", "green");
 					
 				}else{
-					biglog("INCORRECTA", "red");
+					log("Su respuesta es incorrecta.")
+					biglog("Incorrecta", "red");
 				};
 			rl.prompt();
 			});
@@ -139,7 +141,7 @@ exports.playCmd = rl => {
             log(`No hay nada más que preguntar.`);
             log(`Fin del juego. Aciertos: ${colorize(score, "blue")}`);
             log("Fin");
-            biglog(score, 'yellow');
+            biglog(score, 'magenta');
             rl.prompt();
 		}else{
 			let id = Math.floor((Math.random()*toBeResolved.length));
@@ -149,13 +151,13 @@ exports.playCmd = rl => {
 			try{
 			
 				rl.question(`${colorize(quiz.question, "red")}${colorize('?', 'red')}`, respuesta => {
-					log("Su respuesta es:");
+					//log("Su respuesta es:");
 					const sinEspacios = respuesta.match(/[a-zñáéíóúA-Z0-9_]+/ig);
 
 
 					if ( sinEspacios[0].trim().toLowerCase() === quiz.answer.toLowerCase()){
-						log("Correct");
-						biglog("CORRECTA", "green");
+						//log("Correct");
+						//biglog("CORRECTA", "green");
 						score=score+1;
 						log(`CORRECTO - Lleva ${score} aciertos.`);
 						toBeResolved.splice(id, 1);
@@ -163,9 +165,10 @@ exports.playCmd = rl => {
 						playOne();
 						
 					}else{
-						log("Incorrect");
-						biglog("INCORRECTA", "red");
-						log(`Has acertado ${colorize(score, "blue")} preguntas`);
+						log("INCORRECT0.");
+						log(`Fin del juego. Aciertos: ${colorize(score, "blue")}`);
+						biglog(score, 'magenta');
+						//log(`Has acertado ${colorize(score, "blue")} preguntas`);
 						rl.prompt();
 					};
 				rl.prompt();
