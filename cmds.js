@@ -139,8 +139,8 @@ exports.playCmd = rl => {
 
 		if(toBeResolved.length === 0){
             log(`No hay nada más que preguntar.`);
-            log(`Fin del juego. Aciertos: ${colorize(score, "blue")}`);
-            log("Fin");
+            log(`Fin del juego. Aciertos: ${score}`);
+           // log("Fin");
             biglog(score, 'magenta');
             rl.prompt();
 		}else{

@@ -19,7 +19,7 @@ const log = (msg,color)=>{
 const biglog = (msg,color)=>{
 	log(
 		figlet.textSync(msg, {
-		    font: 'Ghost',
+		   // font: 'Ghost',
 		    horizontalLayout: 'full'//,
 		   // verticalLayout: 'default'
 		})
