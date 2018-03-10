@@ -78,7 +78,7 @@ exports.editCmd = (rl, id) =>{
 			process.stdout.isTTY && setTimeout(()=> {rl.write(quiz.question)},0);
 
 
-			rl.question(colorize(' Introduzca una respuesta', 'red'), question => {
+			rl.question(colorize(' Introduzca una pregunta', 'red'), question => {
 				process.stdout.isTTY && setTimeout(()=> {rl.write(quiz.question)},0);
 				rl.question(colorize(' Introduzca la respuesta', 'red'),answer=>{
 					model.update(id,question,answer);
@@ -131,7 +131,7 @@ exports.playCmd = rl => {
 	let score =0;
 	let quizzes = model.getAll();
 	let toBeResolved = [];
-	for (let i = 0; i< quizzes.length; i++){
+	for (var i = 0; i< quizzes.length; i++){
 		toBeResolved[i]=i;
 	}
 
@@ -142,14 +142,12 @@ exports.playCmd = rl => {
             log(`Fin del juego. Aciertos: ${score}`);
            // log("Fin");
             log('Tu puntuación es' );
-            biglog(score, 'magenta');
+            biglog(score, 'green');
             rl.prompt();
 		}else{
 			let id = Math.floor((Math.random()*toBeResolved.length));
 		
 			let quiz = quizzes[id];
-
-			try{
 			
 				rl.question(`${colorize(quiz.question, "red")}${colorize('?', 'red')}`, respuesta => {
 					//log("Su respuesta es:");
@@ -168,19 +166,14 @@ exports.playCmd = rl => {
 						
 					}else{
 						log(`incorrecto`);
-     	 				log('INCORRECTO.', );
+     	 				log('INCORRECTO.');
 						log(`Final del juego. Aciertos: ${score}`);
-						biglog(score, 'magenta');
+						biglog(score, 'green');
 						//log(`Has acertado ${colorize(score, "blue")} preguntas`);
 						rl.prompt();
 					};
 				rl.prompt();
 				});
-			}catch(error){
-				errorlog(error.message);
-				log("Ha habido un error")
-				rl.prompt();
-			}
 
 		}
 	};	
