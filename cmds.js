@@ -148,6 +148,8 @@ exports.playCmd = rl => {
 			let id = Math.floor((Math.random()*toBeResolved.length));
 		
 			let quiz = quizzes[id];
+			quizzes.splice(id, 1);
+			//const quiz = model.getByIndex(posicion);
 			
 				rl.question(`${colorize(quiz.question, "red")}${colorize('?', 'red')}`, respuesta => {
 					//log("Su respuesta es:");
@@ -158,13 +160,14 @@ exports.playCmd = rl => {
 						//log("Correct");
 						//biglog("CORRECTA", "green");
 						score=score+1;
+						log("Su respuesta es: CORRECTA");
 						log(`correcto`);
 						log(`CORRECTO - Lleva ${score} aciertos.`);
 						toBeResolved.splice(id, 1);
-						quizzes.splice(id, 1);
 						playOne();
 						
 					}else{
+						log("Su respuesta es: INCORRECTA");
 						log(`incorrecto`);
      	 				log('INCORRECTO.');
 						log(`Final del juego. Aciertos: ${score}`);
