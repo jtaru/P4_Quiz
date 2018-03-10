@@ -141,8 +141,8 @@ exports.playCmd = rl => {
             log(`No hay nada más que preguntar.`);
             log(`Fin del juego. Aciertos: ${score}`);
            // log("Fin");
-            log('Tu puntuación es' );
-            biglog(score, 'green');
+           // log('Tu puntuación es' );
+            biglog(score, 'magenta');
             rl.prompt();
 		}else{
 			let id = Math.floor((Math.random()*toBeResolved.length));
@@ -151,10 +151,10 @@ exports.playCmd = rl => {
 			
 				rl.question(`${colorize(quiz.question, "red")}${colorize('?', 'red')}`, respuesta => {
 					//log("Su respuesta es:");
-					const sinEspacios = respuesta.match(/[a-zñáéíóúA-Z0-9_]+/ig);
+					//const sinEspacios = respuesta.match(/[a-zñáéíóúA-Z0-9_]+/ig);
 
-
-					if ( sinEspacios[0].trim().toLowerCase() === quiz.answer.toLowerCase()){
+					if ( respuesta.trim().toLowerCase() === quiz.answer.toLowerCase()){
+					//if ( sinEspacios[0].trim().toLowerCase() === quiz.answer.toLowerCase()){
 						//log("Correct");
 						//biglog("CORRECTA", "green");
 						score=score+1;
@@ -168,7 +168,7 @@ exports.playCmd = rl => {
 						log(`incorrecto`);
      	 				log('INCORRECTO.');
 						log(`Final del juego. Aciertos: ${score}`);
-						biglog(score, 'green');
+						biglog(score, 'magenta');
 						//log(`Has acertado ${colorize(score, "blue")} preguntas`);
 						rl.prompt();
 					};
