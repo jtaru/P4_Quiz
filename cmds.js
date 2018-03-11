@@ -147,9 +147,9 @@ exports.playCmd = rl => {
 		}else{
 			let id = Math.floor((Math.random()*toBeResolved.length));
 		
-			let quiz = quizzes[id];
-			quizzes.splice(id, 1);
-			//const quiz = model.getByIndex(posicion);
+			let index = toBeResolved[id];
+			toBeResolved.splice(id, 1);
+			const quiz = model.getByIndex(index);
 			
 				rl.question(`${colorize(quiz.question, "red")}${colorize('?', 'red')}`, respuesta => {
 					//log("Su respuesta es:");
@@ -163,7 +163,7 @@ exports.playCmd = rl => {
 						log("Su respuesta es: CORRECTA");
 						log(`correcto`);
 						log(`CORRECTO - Lleva ${score} aciertos.`);
-						toBeResolved.splice(id, 1);
+						//toBeResolved.splice(id, 1);
 						playOne();
 						
 					}else{
@@ -175,7 +175,7 @@ exports.playCmd = rl => {
 						//log(`Has acertado ${colorize(score, "blue")} preguntas`);
 						rl.prompt();
 					};
-				rl.prompt();
+				//rl.prompt();
 				});
 
 		}
