@@ -160,14 +160,14 @@ exports.playCmd = rl => {
 						//log("Correct");
 						//biglog("CORRECTA", "green");
 						score=score+1;
-						log(`correcto`);
-						log(`CORRECTO - Lleva ${score} aciertos.`);
+						log(` correcto`);
+						log(` CORRECTO - Lleva ${score} aciertos.`);
 						//toBeResolved.splice(id, 1);
 						playOne();
 						
 					}else{
-						log(`incorrecto`);
-     	 				log('INCORRECTO.');
+						log(` incorrecto`);
+     	 				log(' INCORRECTO.');
 						log(`Final del juego. Aciertos: ${score}`);
 						biglog(score, 'magenta');
 						//log(`Has acertado ${colorize(score, "blue")} preguntas`);
