@@ -139,9 +139,9 @@ exports.playCmd = rl => {
 
 		if(toBeResolved.length === 0){
             log(`No hay nada más que preguntar.`);
-            log(`Fin del juego. Aciertos: ${score}`);
+            log(` Fin del juego. Aciertos: ${score}`);
             log("Fin");
-            log('Tu puntuación es' );
+            log(` Tu puntuación es: ${score} ` );
             biglog(score, 'magenta');
             rl.prompt();
 		}else{
@@ -151,11 +151,11 @@ exports.playCmd = rl => {
 			toBeResolved.splice(id, 1);
 			const quiz = model.getByIndex(index);
 			
-				rl.question(`${colorize(quiz.question, "red")}${colorize('?', 'red')}`, respuesta => {
+				//rl.question(`${colorize(quiz.question, "red")}${colorize('?', 'red')}`, respuesta => {
 					//log("Su respuesta es:");
 					//const sinEspacios = respuesta.match(/[a-zñáéíóúA-Z0-9_]+/ig);
-
-					if ( respuesta.trim().toLowerCase() == quiz.answer.toLowerCase()){
+			rl.question(quiz.question, answer => {
+					if ( answer.trim().toLowerCase() == quiz.answer.toLowerCase()){
 					//if ( sinEspacios[0].trim().toLowerCase() === quiz.answer.toLowerCase()){
 						//log("Correct");
 						//biglog("CORRECTA", "green");
@@ -167,7 +167,7 @@ exports.playCmd = rl => {
 						
 					}else{
 						log(` incorrecto`);
-     	 				log(' INCORRECTO.');
+     	 				log(' INCORRECTO.' );
 						log(`Final del juego. Aciertos: ${score}`);
 						biglog(score, 'magenta');
 						//log(`Has acertado ${colorize(score, "blue")} preguntas`);
