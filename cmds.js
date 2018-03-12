@@ -155,7 +155,7 @@ exports.playCmd = rl => {
 					//log("Su respuesta es:");
 					//const sinEspacios = respuesta.match(/[a-zñáéíóúA-Z0-9_]+/ig);
 			rl.question(quiz.question, answer => {
-					if ( answer.trim().toLowerCase() == quiz.answer.toLowerCase()){
+					if ( answer.trim().toLowerCase() == quiz.answer.trim().toLowerCase()){
 					//if ( sinEspacios[0].trim().toLowerCase() === quiz.answer.toLowerCase()){
 						//log("Correct");
 						//biglog("CORRECTA", "green");
