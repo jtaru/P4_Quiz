@@ -68,7 +68,7 @@ exports.add= (question,answer)=>{
 //actualiza el quiz situado en la posicion index
 exports.update = (id, question, answer)=> {
 	const quiz = quizzes[id];
-	if (typeof quiz==="undefiend"){
+	if (typeof quiz==="undefined"){
 		throw new Error(`El valor del parámetro id no es válido.`);
 	}
 	quizzes.splice(id, 1,{
@@ -84,7 +84,7 @@ exports.getAll = () => JSON.parse(JSON.stringify(quizzes));
 //Devuelve un clon del quiz de almacenamiento en la posicion dada
 exports.getByIndex=id=>{
  	const quiz = quizzes[id];
- 	if (typeof quiz === "undefiend "){
+ 	if (typeof quiz === "undefined "){
  		throw new Error (`El valor del parámetro id no es válido. `);
  	}
  	return JSON.parse(JSON.stringify(quiz));
@@ -93,7 +93,7 @@ exports.getByIndex=id=>{
 //Elimina el quiz situado en la posicion dada
 exports.deleteByIndex = id =>{
 	const quiz =quizzes[id];
-	if (typeof quiz === "undefiend "){
+	if (typeof quiz === "undefined "){
  		throw new Error (`El valor del parámetro id no es válido. `);
  	}
  	quizzes.splice(id, 1);
