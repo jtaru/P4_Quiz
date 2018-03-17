@@ -213,7 +213,9 @@ exports.playCmd = rl => {
 			if(a.toLowerCase().trim() === toBeResolved[id].answer.toLowerCase().trim()){
 					score=score+1;
 					toBeResolved.splice(id,1);
-					log("Su respuesta es correcta.");	
+					log(` correcto`);
+					log("Su respuesta es correcta.");
+					log(`Aciertos: ${score}`);	
 					biglog("Correcta", "green");
 					resolve(play());
 				} else {
