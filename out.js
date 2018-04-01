@@ -11,13 +11,13 @@ const colorize = (msg, color) => {
 };
 
 //Escribe un mensaje de log
-const log = (msg,color)=>{
-	console.log(colorize(msg,color));
+const log = (socket,msg,color)=>{
+	socket.write(colorize(msg,color) + "\n");
 };
 
 //Escribe un mensaje de log grande
-const biglog = (msg,color)=>{
-	log(
+const biglog = (socket,msg,color)=>{
+	log(socket,
 		figlet.textSync(msg, {
 		   // font: 'Ghost',
 		    horizontalLayout: 'full'//,
@@ -27,8 +27,8 @@ const biglog = (msg,color)=>{
 	);
 };
 //Escribe el mensaje de error emsg
-const errorlog =(emsg)=>{
-	console.log(`${colorize("Error","red")}: ${colorize(colorize(emsg,"red"), "bgYellowBright")}`);
+const errorlog =(socket,emsg)=>{
+	socket.write(`${colorize("Error","red")}: ${colorize(colorize(emsg,"red"), "bgYellowBright")}\n`);
 };
 
 exports = module.exports = {
